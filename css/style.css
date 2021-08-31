@@ -1,0 +1,17 @@
+.large {
+  font-size: 2rem !important;
+}
+
+.medium {
+  font-size: 1.5rem !important;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-r {
+  margin-right: 0.3rem;
+}
