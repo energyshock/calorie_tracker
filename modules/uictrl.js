@@ -14,7 +14,7 @@ const UISelectors = {
 };
 
 function setInitialState() {
-  // This method allows 'Enter' Keypress when not in Edit State
+  // Allow 'Enter' keypress
   document.querySelector(UISelectors.addBtn).disabled = false;
 
   changeDisplayStyle(
@@ -46,9 +46,11 @@ function populateItemList(items) {
 
 function addListItem(item) {
   changeDisplayStyle('block', UISelectors.itemList);
+
   const li = document.createElement('li');
   li.className = 'collection-item';
   li.id = `item-${item.id}`;
+
   li.innerHTML = `
       <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
       <a href="#" class="secondary-content">
@@ -57,6 +59,15 @@ function addListItem(item) {
   `;
 
   document.querySelector(UISelectors.itemList).appendChild(li);
+}
+
+function updateListItem(item) {
+  document.querySelector(
+    `#item-${item.id} > strong`
+  ).textContent = `${item.name}: `;
+  document.querySelector(
+    `#item-${item.id} > em`
+  ).textContent = `${item.calories} Calories`;
 }
 
 function showTotalCalories(totalCalories) {
@@ -72,7 +83,7 @@ function showItemToEdit() {
 }
 
 function showEditState() {
-  // Does NOT allow 'Enter' Keypress as the button is disabled
+  // Disable 'Enter' keypress
   document.querySelector(UISelectors.addBtn).disabled = true;
 
   changeDisplayStyle(
@@ -84,9 +95,18 @@ function showEditState() {
   changeDisplayStyle('none', UISelectors.addBtn);
 }
 
+function deleteListItem(id) {
+  const item = document.querySelector(`#item-${id}`);
+  item.remove();
+}
+
 function clearInput() {
   document.querySelector(UISelectors.itemNameInput).value = '';
   document.querySelector(UISelectors.itemCaloriesInput).value = '';
+}
+
+function removeItems() {
+  document.querySelector(UISelectors.itemList).textContent = '';
 }
 
 function hideList() {
@@ -118,4 +138,7 @@ export {
   clearInput,
   showTotalCalories,
   showItemToEdit,
+  updateListItem,
+  deleteListItem,
+  removeItems,
 };

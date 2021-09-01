@@ -1,22 +1,18 @@
-// Item onstructor
+import { getItemsFromStorage } from '/modules/storagectrl.js';
+
 function Item(id, name, calories) {
   this.id = id;
   this.name = name;
   this.calories = calories;
 }
 
-// Data Structure / State
+// Data Structure
 const data = {
-  items: [
-    { id: 0, name: 'Steak', calories: 1200 },
-    { id: 1, name: 'Cookie', calories: 400 },
-    { id: 2, name: 'Eggs', calories: 300 },
-  ],
+  items: getItemsFromStorage(),
   currentItem: null,
   totalCalories: 0,
 };
 
-// Public methods
 function getItems() {
   return data.items;
 }
@@ -27,6 +23,18 @@ function getTotalCalories() {
       previousItem + parseInt(currentItem.calories),
     0
   );
+}
+
+function updateItem(item) {
+  const currentItem = getCurrentItem();
+
+  // Find index of item.id
+  const findIndex = data.items.findIndex(item => item.id === currentItem.id);
+  // Update name and calories
+  data.items[findIndex].name = item.name;
+  data.items[findIndex].calories = parseInt(item.calories);
+
+  return data.items[findIndex];
 }
 
 function getItemById(id) {
@@ -60,6 +68,14 @@ function addItem(item) {
   return newItem;
 }
 
+function deleteItemById(id) {
+  data.items = data.items.filter(item => item.id !== id);
+}
+
+function clearAllItems() {
+  data.items = [];
+}
+
 function logData() {
   return data;
 }
@@ -72,4 +88,7 @@ export {
   getItemById,
   setCurrentItem,
   getCurrentItem,
+  updateItem,
+  deleteItemById,
+  clearAllItems,
 };
