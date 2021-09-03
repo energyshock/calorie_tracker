@@ -113,6 +113,10 @@ const itemDeleteSubmit = function (e) {
 
   UICtrl.setInitialState();
 
+  if (ItemCtrl.getItems().length === 0) {
+    UICtrl.hideList();
+  }
+
   e.preventDefault();
 };
 const clearAllSubmit = function (e) {

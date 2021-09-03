@@ -17,6 +17,7 @@ function setInitialState() {
   // Allow 'Enter' keypress
   document.querySelector(UISelectors.addBtn).disabled = false;
 
+  clearInput();
   changeDisplayStyle(
     'none',
     UISelectors.updateBtn,
