@@ -11,18 +11,16 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper blue">
-      <div class="container">
+  <nav class="nav-extended orange lighten-1 mb-2">
+    <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Calorie Tracker</a>
-        <ul class="right">
-          <li><a href="#" class="clear-btn btn blue lighten-3">Clear All</a></li>
-        </ul>
+    </div>
+    <div class="nav-content">
+      <div class="center-align">
+        <a href="#" class="clear-btn btn blue lighten-1 waves-effect waves-light">Clear All</a>
       </div>
     </div>
   </nav>
-
-  <br>
 
   <div class="container">
     <!-- Form Card -->
@@ -39,30 +37,36 @@
               <input type="number" placeholder="Add Calories" id="item-calories">
               <label for="item-calories">Calories</label>
             </div>
-            <button class="add-btn btn blue darken-3">
+            <button class="add-btn btn blue darken-3 waves-effect waves-light">
               <div class="flex">
                 <i class="large material-icons m-r">add</i> 
                 Add Meal
               </div>
             </button>
-            <button class="update-btn btn orange">
-              <div class="flex">
-                <i class="medium material-icons m-r">edit</i> 
-                Update Meal
+            <div class="inline-flex">
+              <div>
+                <button class="update-btn btn orange">
+                  <div class="flex">
+                    <i class="medium material-icons m-r">edit</i> 
+                    Update Meal
+                  </div>
+                </button>
+                <button class="delete-btn btn red">
+                  <div class="flex">
+                    <i class="medium material-icons m-r">delete</i> 
+                    Delete Meal
+                  </div>
+                </button>
               </div>
-            </button>
-            <button class="delete-btn btn red">
-              <div class="flex">
-                <i class="medium material-icons m-r">delete</i> 
-                Delete Meal
+              <div>
+                <button type="button" class="back-btn btn grey">
+                  <div class="flex">
+                    <i class="large material-icons">chevron_left</i> 
+                    Back
+                  </div>
+                </button>
               </div>
-            </button>
-            <button type="button" class="back-btn btn grey right">
-              <div class="flex">
-                <i class="large material-icons">chevron_left</i> 
-                Back
-              </div>
-            </button>
+            </div>            
           </div>
         </form>
       </div>
